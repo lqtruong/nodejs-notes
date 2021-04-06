@@ -39,7 +39,7 @@ console.log( __filename );
 
 See more [global_objects.js](global_objects.js)
 
-# Express - minimal Node.js web application framework
+# Express
 We can use Express module to create a minimal and flexible web-based application
 
 See more [express.js](express.js)
@@ -51,6 +51,18 @@ app.use(express.static('public'));
 ```
 
 See more [express_static.js](express_static.js)
+
+# HAPI
+
+# JOI - validation
+
+# LOUT - Documentation
+
+# Unit Tests
+
+# Security
+
+## API Authorization - OAuth2
 
 # Packaging
 Packaging & publishing into [**npm repository**](https://www.npmjs.com/) is a nice process to modularize our code & reuse in another module. To do that, we have to create a `package.json`
@@ -79,5 +91,5 @@ Use command `npm adduser` to connect to [**npm repository**](https://www.npmjs.c
 
 Use command `npm publish` to build & publish the module to the repository
 
-# Unpublishing the module from npm repository
+# Unpublishing
 We can remove the published module from the [**npm repository**](https://www.npmjs.com/) whenever we want by using command `npm unpublish <module name>`
