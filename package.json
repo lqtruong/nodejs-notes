@@ -1,0 +1,15 @@
+{
+  "name": "njstesting",
+  "version": "1.0.0",
+  "description": "NodeJS training",
+  "main": "hello_word.js",
+  "scripts": {
+    "test": "hw"
+  },
+  "keywords": [
+    "nodejs",
+    "training"
+  ],
+  "author": "Le Quoc Truong",
+  "license": "MIT"
+}
