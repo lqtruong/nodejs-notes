@@ -52,11 +52,18 @@ app.use(express.static('public'));
 
 See more [express_static.js](express_static.js)
 
-# [HAPI](https://hapi.dev/) - 3rd webservices framework
+# [HAPI](https://hapi.dev/) - 3rd HTTP API framework
 
 ## JOI - validation
 
 ## LOUT - Documentation
+
+## HAPI vs Express
+- Hapi: is a newer framework that abstracts the existing Node API
+- Express: is older and more established. Express code looks and feels more like native Node
+- Hapi has more in the core: in some cases, Express needs [middleware](terms/middleware.md) to perform a task that Hapi handles internally
+- Hapi: more abstraction from Node while Express is closer to Node
+- Hapi uses plugins, and Express uses middleware
 
 # Mongoose
 
@@ -70,6 +77,9 @@ See more [express_static.js](express_static.js)
 ## API Authorization - OAuth2
 
 ## Secure APIs using HAPI
+
+# Exercise
+In this exercise, we attempt to implement a NodeJS app using HAPI framework & other relevant stacks
 
 # Packaging
 Packaging & publishing into [**npm repository**](https://www.npmjs.com/) is a nice process to modularize our code & reuse in another module. To do that, we have to create a `package.json`
