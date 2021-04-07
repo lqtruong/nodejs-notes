@@ -6,7 +6,7 @@ NodeJS application is **ADVISED** for **Data Intensive** Real-time Applications 
 Simple example to print `hello world`
 
 See more [hello_word.js](hello_word.js)
-# Http Server
+# Http - Core
 Use `require("<module name>")` to import module. For instance 
 
 ```var http = require("http");```
@@ -18,7 +18,7 @@ We can use callback function implement the async call
 
 See more [call_back.js](call_back.js)
 
-# Event Loop
+# Event Loop - Core
 Node.js is a **single-threaded** application but it can support concurrency via the concept of **event** and **callbacks**
 
 ![Event loop](event_loop.jpg)
@@ -39,7 +39,7 @@ console.log( __filename );
 
 See more [global_objects.js](global_objects.js)
 
-# Express
+# [Express](https://expressjs.com/) - 3rd web framework
 We can use Express module to create a minimal and flexible web-based application
 
 See more [express.js](express.js)
@@ -52,17 +52,24 @@ app.use(express.static('public'));
 
 See more [express_static.js](express_static.js)
 
-# HAPI
+# [HAPI](https://hapi.dev/) - 3rd webservices framework
 
-# JOI - validation
+## JOI - validation
 
-# LOUT - Documentation
+## LOUT - Documentation
 
-# Unit Tests
+# Mongoose
+
+# Tests
+## Unit tests
+## Integration tests
+## End-to-End (e2e) tests
 
 # Security
 
 ## API Authorization - OAuth2
+
+## Secure APIs using HAPI
 
 # Packaging
 Packaging & publishing into [**npm repository**](https://www.npmjs.com/) is a nice process to modularize our code & reuse in another module. To do that, we have to create a `package.json`
@@ -92,4 +99,8 @@ Use command `npm adduser` to connect to [**npm repository**](https://www.npmjs.c
 Use command `npm publish` to build & publish the module to the repository
 
 # Unpublishing
-We can remove the published module from the [**npm repository**](https://www.npmjs.com/) whenever we want by using command `npm unpublish <module name>`
+We can remove the published module from the [**npm repository**](https://www.npmjs.com/) whenever we want by using command 
+
+```
+npm unpublish <module name>
+```
