@@ -54,6 +54,8 @@ See more [express_static.js](express_static.js)
 
 # [HAPI](https://hapi.dev/) - 3rd HTTP API framework
 
+See more [HAPI Overview](2_Skills/4_HAPI_overview/README.md)
+
 ## JOI - validation
 
 ## LOUT - Documentation
@@ -61,7 +63,7 @@ See more [express_static.js](express_static.js)
 ## HAPI vs Express
 - Hapi: is a newer framework that abstracts the existing Node API
 - Express: is older and more established. Express code looks and feels more like native Node
-- Hapi has more in the core: in some cases, Express needs [middleware](terms/middleware.md) to perform a task that Hapi handles internally
+- Hapi has more in the core: in some cases, Express needs [middleware](Terms/middleware.md) to perform a task that Hapi handles internally
 - Hapi: more abstraction from Node while Express is closer to Node
 - Hapi uses plugins, and Express uses middleware
 

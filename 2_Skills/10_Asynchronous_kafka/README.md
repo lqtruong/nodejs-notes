@@ -1,0 +1,1 @@
+# Asynchronous integration via Kafka
