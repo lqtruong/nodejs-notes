@@ -11,7 +11,7 @@ In Node.js, the principles come from
 
 # Node.js principles
 ## small core
-## small *module* in both code & scope
+## small module in both code & scope
 
 This increases the reusability of the package
 
@@ -26,7 +26,7 @@ This is to exposing a minimal set of functionalities
 
 - In Node.js, modules are created to be used rather than extended
 
-## Simplicity and pragmatism
+## simplicity and pragmatism
 **KISS** (aka. Keep It Simple, Stupid) principle to use
 
 - Simplicity is the most important consideration in a design - Richard P. Gabriel
@@ -97,6 +97,9 @@ class Person {
     }
 }
 ```
+
+See more [class_syntax.js](../../class_syntax.js)
+
 We can use `extends` keyword to extend the class
 
 See more [class_extends.js](../../class_extends.js)
