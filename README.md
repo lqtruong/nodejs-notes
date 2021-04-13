@@ -116,3 +116,9 @@ We can remove the published module from the [**npm repository**](https://www.npm
 ```
 npm unpublish <module name>
 ```
+
+# References
+Books
+- Node.js Design Patterns-Mario Casciaro-2nd Edition.pdf
+- Node.js in Action.pdf - Manning publisher
+- HAPI.js in Action.pdf - Manning publisher
