@@ -1,6 +1,26 @@
-Self training on NodeJS - A quick notes
+# Self training on NodeJS - A quick notes
 
 NodeJS application is **ADVISED** for **Data Intensive** Real-time Applications (DIRT) **NOT** for **CPU intensive** applications
+
+# Overview
+- 0_Books: book for references
+  - HAPI.js in Action.pdf - abreviated as [book [`HIA`](0_Books/HAPI.js%20in%20Action.pdf)]
+  - Node.js Design Patterns-Mario Casciaro-2nd Edition.pdf - abreviated as [book [`NDP`](0_Books/Node.js%20Design%20Patterns-Mario%20Casciaro-2nd%20Edition.pdf)]
+- 1_Concepts
+- 2_Skills
+  - On Node
+    - chapter 1 (Welcome to the Node.js Platform) [book [`NDP`](0_Books/Node.js%20Design%20Patterns-Mario%20Casciaro-2nd%20Edition.pdf)]
+    - chapter 2 (Node.js essential patterns) & 5 (Coding with streams) [book [`NDP`](0_Books/Node.js%20Design%20Patterns-Mario%20Casciaro-2nd%20Edition.pdf)]
+    - chapter 10 (Scalability & Architectural Patterns) [book [`NDP`](0_Books/Node.js%20Design%20Patterns-Mario%20Casciaro-2nd%20Edition.pdf)]
+    - chapter 11 (Messaging and Integration patterns) [book [`NDP`](0_Books/Node.js%20Design%20Patterns-Mario%20Casciaro-2nd%20Edition.pdf)]
+  - On HAPI
+    - chapter 1 (Introducing hapi) [book [`HIA`](0_Books/HAPI.js%20in%20Action.pdf)]
+    - chapter 2 (Building an API) [book [`HIA`](0_Books/HAPI.js%20in%20Action.pdf)]
+    - chapter 4 (Routes and handlers in-depth) [book [`HIA`](0_Books/HAPI.js%20in%20Action.pdf)]
+    - chapter 5 (Understanding requests and responses) [book `HIA`] 
+    - chapter 6 (Validation with JOI) [book [`HIA`](0_Books/HAPI.js%20in%20Action.pdf)]
+    - chapter 7 (Building modular applications with plugins) [book [`HIA`](0_Books/HAPI.js%20in%20Action.pdf)]
+- 3_Excercise
 
 # Mentioned patterns & techniques
 - SOLID
@@ -24,7 +44,7 @@ NodeJS application is **ADVISED** for **Data Intensive** Real-time Applications 
   - composability
   - back-pressure
   - asynchronous control flow
-
+  
 # Hello world
 Simple example to print `hello world`
 
@@ -142,6 +162,5 @@ npm unpublish <module name>
 
 # References
 Books
-- Node.js Design Patterns-Mario Casciaro-2nd Edition.pdf
-- Node.js in Action.pdf - Manning publisher
-- HAPI.js in Action.pdf - Manning publisher
+- [`Node.js Design Patterns-Mario Casciaro-2nd Edition.pdf`](0_Books/Node.js%20Design%20Patterns-Mario%20Casciaro-2nd%20Edition.pdf)
+- [`HAPI.js in Action.pdf`](0_Books/HAPI.js%20in%20Action.pdf) - Manning publisher
