@@ -2,6 +2,24 @@ Self training on NodeJS - A quick notes
 
 NodeJS application is **ADVISED** for **Data Intensive** Real-time Applications (DIRT) **NOT** for **CPU intensive** applications
 
+# Mentioned patterns & techniques
+- SOLID
+- DRY
+- busy-waiting
+- small surface area
+- Reactor
+- actively poll
+- Continuation-Passing Style - CPS
+- callback
+- callback hell
+- dependency hell
+- Unleashing Zalgo
+- unpredictable functions
+- Deferred execution
+- Single Responsibility Principle (SRP)
+- monkey patching
+- The observer pattern
+
 # Hello world
 Simple example to print `hello world`
 

@@ -1,0 +1,1 @@
+var x = require('./exports.js')(); //Error: require is not a function
