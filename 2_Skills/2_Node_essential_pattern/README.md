@@ -29,6 +29,8 @@ One of the most dangerous situations is to have an API that behaves synchronousl
 - prefer the direct style for `purely synchronous` functions
 - changing from `sync to async` and `vice versa` requires a change to the style of all the code `using` it
 
+The principle of avoiding `Zalgo` is to make `callback-taking APIs` to call the callbacks `either always synchronously or always asynchronously`.
+
 `Unleashing Zalgo` pattern is saying that it should be imperative for an API to `clearly define its nature`: either `synchronous` or `asynchronous`.
 
 See more [unpredictable_func.js](../../unpredictable_func.js)
@@ -167,3 +169,137 @@ glob('Terms/*.md', (error, files) => console.log(`All files found: ${JSON.string
 ```
 
 See more [glob_require.js](../../glob_require.js)
+
+# Stream
+Streams are one of the most important components and patterns of Node.js
+
+## Buffering vs streaming
+- `Buffer mode` causes `all the data` coming from a resource to be collected into a `buffer`; it is then passed to a callback as soon as the `entire resource is read`
+
+![Buffering](../../buffer_mode.png)
+
+- `Streams` allow you to process the data `as soon as` it arrives from the resource
+
+![Streaming](../../stream_mode.png)
+
+`Streaming` is considered in 2 manners over `Buffering`
+- Spatial efficiency
+    - Buffers in V8 cannot be bigger than 0x3FFFFFFF bytes (a little bit less than 1GB)
+    - Big files reading
+- Time efficiency
+
+See more [gzip_buffering.js](../../gzip_buffering.js) to compress a file to Gzip format using Buffer mode to reduce size
+
+Gzip using Streaming API see more [gzip_streaming.js](../../gzip_streaming.js)
+
+
+See more [gzip_send.js](../../gzip_send.js) to `send` the `gzip` file to the server
+
+See more [gzip_receive.js](../../gzip_receive.js) to `receive` the `gzip` file by the server from client.
+
+## 4 base abstract classes in stream core module
+- stream.Readable
+- stream.Writable
+- stream.Duplex
+- stream.Transform
+
+Stream supports 2 operating modes
+- Binary mode: data is streamed in the form of chunks, such as buffers or strings
+- Object mode: This mode is where the streaming data is treated as a sequence of discrete objects 
+
+See more an opensource https://strongloop.com/
+
+### Readable streams
+- Reading from a stream
+    - non-flowing mode
+    - Flowing mode
+
+```readable._read(size)```
+
+```readable.push(chunk)```
+
+See more [stream_readable.js](../../stream_readable.js) and [stream_readable_require.js](../../stream_readable_require.js)
+
+### Writable streams
+- Writing to a stream 
+
+```writable.write(chunk, [encoding], [callback])```
+
+```writable.end([chunk], [encoding], [callback])```
+
+See more 
+- [stream_writable.js](../../stream_writable.js) for basic writable stream
+- [stream_writable_back_pressure.js](../../stream_writable_back_pressure.js) - for using back-pressure technique
+- [stream_writable_to_file.js](../../stream_writable_to_file.js) and [stream_writable_to_file_require.js](../../stream_writable_to_file_require.js) - for writing streaming content to files
+
+### Duplex streams
+A Duplex stream is a stream that is both Readable and Writable
+
+![Duplex Stream](../../stream_duplex.png)
+
+### Transform streams
+The Transform streams are a special kind of Duplex stream that are specifically designed to handle data transformations.
+
+![Transform Stream](../../stream_transform.png)
+
+See more [stream_transform.js](../../stream_transform.js) and [stream_transform_require.js](../../stream_transform_require.js)
+
+To connect streams using pipes. See [stream_transform_pipe.js](../../stream_transform_pipe.js)
+
+Joining 2 streams, you can see it in [stream_join.js](../../stream_join.js)
+
+### Through and from for working with streams
+The examples of inheriting from a base stream class violates the `small surface area` principle and requires some boilerplate code.
+
+There are `2 libraries` used for `Transform` stream & `Readable` stream, they are `through2` & `from2`, respectively
+
+- [`through2`](https://github.com/rvagg/through2): A tiny wrapper around Node.js streams.Transform (Streams2/3) to avoid explicit subclassing noise
+
+- [`from2`](https://github.com/hughsk/from2): is a high-level module for creating readable streams that properly handle backpressure.
+### Asynchronous control flow with streams
+
+### Sequential execution
+See more at [stream_concat_files.js](../../stream_concat_files_require.js)
+
+
+### Unordered parallel execution
+### Ordered parallel execution
+We have a library to support the ordered parallel execution as seen here [`through2-parallel`](https://npmjs.org/package/through2-parallel)
+
+## Piping patterns
+To `merge` 2 or multiple `streams`, `split` the flow of `one stream` into two or more pipes, or `redirect` the flow `based on a condition`.
+
+### Combining streams
+A `combined stream` is usually a `Duplex` stream, which is built by connecting the `first stream to its Writable` side and the `last stream to its Readable` side.
+
+Supported feature libraries: 
+- [`duplexer2`](https://www.npmjs.com/package/duplexer2)
+- [`multipipe`](https://www.npmjs.com/package/multipipe)
+
+See more [stream_combine.js](../../stream_combine.js) and [stream_combine_require.js](../../stream_combine_require.js) 
+
+### Forking streams
+`Forking` streams is `piping a single Readable` stream into  `multiple Writable` streams
+
+### Merging streams
+`Merging` is the `opposite operation to forking` and consists of piping a `set of Readable streams` into a `single Writable` stream
+
+#### Creating a tarball from multiple directories
+- [`tar`](https://www.npmjs.com/package/tar): a streaming library to create tarballs from contents of two different directories
+- [`fstream`](https://www.npmjs.com/package/fstream): a library to create object streams from filesystem files
+
+For simply merging stream, we also have these libraries
+- [`merge-stream`](https://www.npmjs.com/package/merge-stream) - very little active?
+- [`multistream-merge`](https://npmjs.org/package/multistream-merge) - not active?
+- [`multistream`](https://github.com/feross/multistream)
+- [`combined-stream`](https://www.npmjs.com/package/combined-stream)
+
+### Multiplexing and demultiplexing
+
+There is a `particular variation of the merge stream` pattern in which we don't really want to just join multiple streams together but, instead, `use a shared channel to deliver` the data of a set of streams
+
+![Multiplex and Demultiplex](../../multiplex_demultiplex.png)
+
+An example using Demultiplex (e.g. demux)
+
+![Demultiplex](../../demux.png)

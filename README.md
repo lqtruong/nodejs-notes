@@ -19,6 +19,11 @@ NodeJS application is **ADVISED** for **Data Intensive** Real-time Applications 
 - Single Responsibility Principle (SRP)
 - monkey patching
 - The observer pattern
+- flow control
+- Streams
+  - composability
+  - back-pressure
+  - asynchronous control flow
 
 # Hello world
 Simple example to print `hello world`
