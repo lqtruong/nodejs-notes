@@ -1,15 +1,21 @@
 
-const validateAuthorizationHeader = (req, res) => {
-    console.log('validate the authorization header');
-    const rawReq = req.raw.req;
-    const authorization = rawReq.headers.authorization;
-    if (!authorization) {
-        throw Boom.unauthorized(null, 'simple');
-    }
+const validateAuthorizationHeader = (decoded, req) => {
+    console.log(decoded);
+    return { isValid: true, credentials: { user: decoded.GivenName } };
+};
 
-    return res.authenticated({ credentials: { user: 'john' } });
+const validateBasicHeader = (req, username, password, h) => {
+    console.log(req);
+    let rawReq = req.raw.req;
+    let authorization = rawReq.headers.authorization;
+    console.log(authorization);
+    if (!authorization) {
+        return { isValid: false, credentials: { user: 'unknown' } };
+    }
+    return { isValid: true, credentials: { user: 'john' } };
 };
 
 module.exports = {
-    validateAuthorizationHeader
+    validateAuthorizationHeader,
+    validateBasicHeader
 }

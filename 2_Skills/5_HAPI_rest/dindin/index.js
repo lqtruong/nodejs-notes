@@ -2,10 +2,6 @@ const Hapi = require('@hapi/hapi');
 const routes = require('./routes');
 const strategies = require('./auth/strategies');
 
-const validate = (decoded, request, h) => {
-    return { isValid: true };
-};
-
 const initServer = async () => {
     const server = Hapi.server({ port: 4000 });
 
@@ -15,13 +11,21 @@ const initServer = async () => {
             require('@hapi/basic'),
             require('hapi-auth-jwt2')
         ]);
-    server.auth.strategy('simple', 'basic', { validate });
-    server.auth.default('simple');
+    // server.auth.strategy('simple', 'basic', {
+    //     validate: strategies.validateBasicHeader
+    // });
+    // server.auth.default('simple');
 
-    server.auth.strategy('jwt', 'jwt', {
-        key: 'NeverShareYourSecret', // Never Share your secret key
-        validate
-    }); // custom jwt authorization strategy
+    server.auth.strategy('jwt', 'jwt',
+        {
+            key: 'NeverShareYourSecret',  // Never Share your secret key
+            validate: strategies.validateAuthorizationHeader,
+            verifyOptions: {
+                ignoreExpiration: true,
+                algorithms: ['HS256']
+            }
+        }); // custom jwt authorization strategy
+    server.auth.default('jwt');
 
     server.route(routes);
 
