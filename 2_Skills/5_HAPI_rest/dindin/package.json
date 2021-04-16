@@ -1,0 +1,24 @@
+{
+  "name": "hapi-rest",
+  "version": "1.0.0",
+  "description": "hapi rest examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "hello"
+  },
+  "keywords": [
+    "hapi",
+    "rest",
+    "advanced"
+  ],
+  "author": "Le Quoc Truong",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/basic": "^6.0.0",
+    "@hapi/boom": "^9.1.2",
+    "@hapi/hapi": "^20.1.2",
+    "hapi-auth-jwt2": "^10.2.0",
+    "sqlite3": "^5.0.2",
+    "util": "^0.12.3"
+  }
+}
