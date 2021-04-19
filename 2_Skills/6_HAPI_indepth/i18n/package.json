@@ -1,0 +1,21 @@
+{
+  "name": "i18n",
+  "version": "1.0.0",
+  "description": "Internationalization example",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "up"
+  },
+  "keywords": [
+    "i18n"
+  ],
+  "author": "Le Quoc Truong",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/accept": "^5.0.2",
+    "@hapi/hapi": "^20.1.2",
+    "@hapi/vision": "^6.0.1",
+    "handlebars": "^4.7.7"
+  }
+}
