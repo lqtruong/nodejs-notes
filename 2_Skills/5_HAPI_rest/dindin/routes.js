@@ -1,9 +1,10 @@
 const Recipes = require('./handlers/recipes');
+const Users = require('./handlers/users');
 
 const routes = [
     {
         method: 'GET',
-        path: '/api/public',
+        path: '/api/test',
         handler: (req, res) => {
             return new Promise((resolve, reject) => {
                 resolve('public api');
@@ -20,43 +21,46 @@ const routes = [
             return new Promise((resolve, reject) => {
                 resolve(`hello ${req.auth.credentials.user}, welcome to home!`);
             });
+        },
+        options: {
+            auth: 'jwt'
         }
     },
     {
         method: 'POST',
         path: '/api/login',
-        handler: (req, res) => {
-            return new Promise((resolve, reject) => {
-                resolve(`hello ${req.auth.credentials.user}, welcome to home!`);
-            });
-        }
+        options: {
+            auth: false
+        },
+        handler: Users.login
     },
+    // USERS
+    {
+        method: 'POST',
+        path: '/api/users',
+        handler: Users.insertUser
+    },
+    // END USERS
     {
         method: 'GET',
         path: '/api/recipes',
         handler: Recipes.viewAllRecipes
-    },
+    }, // default jwt authorization strategy
     {
         method: 'GET',
         path: '/api/recipes/{id}',
         handler: Recipes.viewRecipeById
-    }, // view recipe APIs are authorized using default strategy for basic header scheme
+    }, // default jwt authorization strategy
     {
         method: 'POST',
         path: '/api/recipes',
-        handler: Recipes.createRecipe,
-        options: {
-            auth: 'jwt'
-        }
-    }, // create recipe API is authorized using 'jwt' strategy with bearer jwt token
+        handler: Recipes.createRecipe
+    }, // create recipe API is authorized using 'jwt' strategy as default
     {
         method: 'DELETE',
         path: '/api/recipes/{id}',
-        handler: Recipes.deleteRecipe,
-        options: {
-            auth: 'jwt'
-        }
-    }, // dete recipe API is authorized using 'jwt' strategy with bearer jwt token
+        handler: Recipes.deleteRecipe
+    }, // delete recipe API is authorized using 'jwt' strategy as default
 ];
 
 module.exports = routes;

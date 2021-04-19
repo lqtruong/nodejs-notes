@@ -1,0 +1,5 @@
+{
+    "jwt": {
+        "secret": "$2y$12$QkiPP1GwHAstb7rePmsPj.ceZO/.8UCRLNPn2SSoHSvn/0JmaB15G"
+    }
+}

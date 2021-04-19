@@ -1,0 +1,9 @@
+create table users(
+  id integer PRIMARY KEY autoincrement NOT NULL, 
+  firstName varchar(255) not null, 
+  lastName varchar(255) not null, 
+  username varchar(255) not null UNIQUE, 
+  password text not null, 
+  email text not null UNIQUE, 
+  token text
+);

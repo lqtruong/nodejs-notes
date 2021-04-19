@@ -15,7 +15,7 @@ const viewAllRecipes = (req, res) => {
         db.all(sql, params, (err, results) => {
             if (err) {
                 console.log(err);
-                reject(err)
+                reject(err);
             }
             resolve(res.response(results));
         });

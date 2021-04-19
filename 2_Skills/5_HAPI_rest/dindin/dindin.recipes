@@ -1,0 +1,17 @@
+-- recipes definition
+
+CREATE TABLE recipes (
+  id integer PRIMARY KEY autoincrement NOT NULL,
+  name varchar(255) NOT NULL,
+  cooking_time varchar(255) DEFAULT(NULL),
+  prep_time varchar(255) DEFAULT(NULL),
+  serves int(11) DEFAULT(NULL),
+  cuisine varchar(255) DEFAULT(NULL),
+  ingredients text,
+  directions text,
+  stars int(11) NOT NULL DEFAULT('0'),
+  user_id int(11) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE INDEX recipes_fk_recipes_users_idx ON recipes (user_id);
