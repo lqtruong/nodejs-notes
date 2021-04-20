@@ -13,6 +13,7 @@
   "author": "Le Quoc Truong",
   "license": "MIT",
   "dependencies": {
+    "@hapi/glue": "^8.0.0",
     "@hapi/hapi": "^20.1.2",
     "@hapi/joi": "^17.1.1",
     "@hapi/wreck": "^17.1.0",
@@ -25,6 +26,7 @@
     "glob": "^7.1.6",
     "mkdirp": "^1.0.4",
     "multipipe": "^4.0.0",
+    "redis": "^3.1.1",
     "through2": "^4.0.2",
     "zlib": "^1.0.5"
   }

@@ -1,0 +1,20 @@
+{
+  "name": "dindin",
+  "version": "1.0.0",
+  "description": "Dindin Startup Modularization NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "modularization",
+    "hapi"
+  ],
+  "author": "Le Quoc Truong",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.2",
+    "rethinkdb": "^2.4.2",
+    "sqlite3": "^5.0.2"
+  }
+}
