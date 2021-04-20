@@ -1,7 +1,6 @@
 'use strict';
 
 import Hapi from '@hapi/hapi';
-import Accept from '@hapi/accept';
 import Routes from './routes.js';
 import Vision from '@hapi/vision';
 import Handlebars from 'handlebars';

@@ -1,0 +1,22 @@
+{
+  "name": "chatapp-socket",
+  "version": "1.0.0",
+  "description": "chat app using socket & request/reply pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "socket"
+  ],
+  "author": "Le Quoc Truong",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.2",
+    "@hapi/vision": "^6.0.1",
+    "ecstatic": "^4.1.4",
+    "handlebars": "^4.7.7",
+    "ws": "^7.4.5"
+  }
+}
