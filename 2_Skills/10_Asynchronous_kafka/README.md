@@ -15,6 +15,7 @@ Message types
 
 **Websockets**
 - Node.js websocket library used `ws`. See the application [chatapp-socket](chatapp-socket/index.js)
+- `Peer-to-peer` for `publish/subscribe` using [`ZeroMQ`](https://zeromq.org/) (aka. `ØMQ`)
 
 
 **Message Brokers**
