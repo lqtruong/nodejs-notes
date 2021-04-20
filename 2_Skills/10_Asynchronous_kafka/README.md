@@ -22,3 +22,10 @@ Message types
 - Rabbit MQ
 - Apache Kafka
 
+# Node.js + Kafka
+
+Libs & plugins used
+- KafkaJS
+- Hapi
+- Apache Kafka & Zookeeper server
+- Node.js backend
