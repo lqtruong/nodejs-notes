@@ -4,7 +4,7 @@ This chapter is to implement the scaling applications using Kafka message broker
 
 Prerequisites
 - MongoDB: to install [`mongodb`](https://github.com/lqtruong/mongo-docker) using docker
-- [`Kafka + Zookeeper`]() using docker
+- [`Kafka + Zookeeper`](https://github.com/lqtruong/kafka-docker) using docker
 
 Steps 
 - to install `@hapi/hapi`

@@ -26,6 +26,6 @@ See more [Chroot & Chroot Jail](https://www.geeksforgeeks.org/linux-virtualizati
 - `Docker containers` are typically much `smaller` and `faster` and that fits to `microservices`
 - `VMs` are created and managed as plain machines that `never get replaced` or do not change very often.
 
-See how the Docker installed on WinOS (my machine) [`here`](https://github.com/lqtruong/kafka-docker)
+See how the Docker installed on WinOS (my machine) [`here`](https://github.com/lqtruong/kafka-winos)
 
 See how the `MongoDB` installed on Docker container using `Replicaset` mode [`here`](https://github.com/lqtruong/mongo-replset)
