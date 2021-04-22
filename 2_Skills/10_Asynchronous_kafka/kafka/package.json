@@ -1,0 +1,20 @@
+{
+  "name": "chat-kafka",
+  "version": "1.0.0",
+  "description": "chat app using kafka",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "app",
+    "using",
+    "kafka"
+  ],
+  "author": "Le Quoc Truong",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.12.5"
+  }
+}

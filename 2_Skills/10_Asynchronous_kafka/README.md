@@ -14,9 +14,8 @@ Message types
 ![message broker](message_broker.png)
 
 **Websockets**
-- Node.js websocket library used `ws`. See the application [chatapp-socket](chatapp-socket/index.js)
+- Node.js websocket library used `ws`. See the application [socket nodejs](socket/README.md)
 - `Peer-to-peer` for `publish/subscribe` using [`ZeroMQ`](https://zeromq.org/) (aka. `ØMQ`)
-
 
 **Message Brokers**
 - Rabbit MQ
@@ -25,7 +24,9 @@ Message types
 # Node.js + Kafka
 
 Libs & plugins used
-- KafkaJS
+- [KafkaJS](https://kafka.js.org/docs/getting-started) client
 - Hapi
 - Apache Kafka & Zookeeper server
 - Node.js backend
+
+See more at [kafka nodejs](kafka/README.md)
