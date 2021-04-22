@@ -1,6 +1,7 @@
 const Mongoose = require('../db');
 const CartSchema = require('../models/carts');
 const Carts = Mongoose.model('Cart', CartSchema);
+const CartsEvents = require('../events/carts_events');
 
 const getAllByUser = async (req, res) => {
 
@@ -12,6 +13,9 @@ const getAllByUser = async (req, res) => {
 };
 
 const addItem = async (req, res) => {
+    // when adding an item to cart, produce an event to check the product availability
+    // if the product quantity > the adding quantity, then add. Otherwise, error thrown
+    CartsEvents.addProductToCartEvent(req.payload);
     return Promise.resolve(Carts.create(req.payload));
 };
 

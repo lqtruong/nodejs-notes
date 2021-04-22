@@ -15,6 +15,8 @@
   "author": "Le Quoc Truong",
   "license": "MIT",
   "dependencies": {
+    "@hapi/hapi": "^20.1.2",
+    "kafkajs": "^1.15.0",
     "mongoose": "^5.12.5"
   }
 }

@@ -1,5 +1,7 @@
 const Hapi = require('@hapi/hapi');
-const Routes = require('./router')
+const Routes = require('./router');
+require('./events/producer');
+require('./events/consumer');
 
 const initServer = async () => {
 

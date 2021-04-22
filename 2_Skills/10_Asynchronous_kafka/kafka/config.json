@@ -1,5 +1,8 @@
 {
     "query": {
         "limit": 5
+    },
+    "kafka": {
+        
     }
 }
