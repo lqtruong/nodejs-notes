@@ -1,5 +1,4 @@
-// const { consumeAddProductToCart } = require('./consumer')
-
+const { Products } = require('../handlers');
 const { Kafka } = require('kafkajs')
 
 const kafkaBootstrapServer = new Kafka({
@@ -25,8 +24,10 @@ const checkProductAvailabilityEvent = async () => {
                     let products = data.products;
                     if (products) {
                         products.forEach(prod => {
-                            console.log(prod._id);
-                            console.log(prod.quantity);
+                            // check id & update quantity
+                            Products.buyProduct(prod._id, prod.quantity)
+                                .then(updatedProduct => sendBackProductAvailability(updatedProduct))
+                                .catch(err => console.log(err));
                         });
                     }
 
@@ -37,9 +38,24 @@ const checkProductAvailabilityEvent = async () => {
         .catch(err => console.log(err));
 };
 
+const sendBackProductAvailability = async (product) => {
+    const producer = kafkaBootstrapServer.producer();
+    await producer.connect();
+    producer.send({
+        topic: 'b2c.tpc.carts.additem.availability',
+        messages: [
+            {
+                value: JSON.stringify(product)
+            }
+        ],
+    });
+
+};
+
 checkProductAvailabilityEvent();
 
 module.exports = {
     checkProductAvailabilityEvent
 };
+
 

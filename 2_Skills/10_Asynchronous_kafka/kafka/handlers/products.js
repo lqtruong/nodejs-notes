@@ -34,9 +34,24 @@ const deleteById = async (req, res) => {
     return Promise.resolve(Products.findByIdAndRemove(id));
 };
 
+const buyProduct = async (id, quantity) => {
+    Products.findById(id)
+        .exec()
+        .then(product => {
+            if (product && product.quantity >= quantity) {
+                // ok
+                Promise.resolve(Products.findByIdAndUpdate(product._id, { 'quantity': product.quantity - quantity }, { useFindAndModify: false }));
+            } else {
+                Promise.reject('Product does not exist or quantity not enough');
+            }
+        })
+        .catch(err => console.log(err));
+};
+
 module.exports = {
     getAll,
     getById,
     addProduct,
-    deleteById
+    deleteById,
+    buyProduct
 };
