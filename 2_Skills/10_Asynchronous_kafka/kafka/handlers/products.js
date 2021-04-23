@@ -5,18 +5,18 @@ const Products = Mongoose.model('Product', ProductSchema);
 const Configs = require('../config.json');
 
 const getAll = async (req, res) => {
-    let size = new Number(req.query.size);
+    let size = req.query.size;
     let page = Math.max(0, req.query.page);
-    let skip = new Number(page * size);
-    const query = Products.find({});
-    if (skip) {
-        query.skip(skip);
-    }
-    if (size) {
-        query.limit(size);
-    }
-    query.sort({ 'modified': -1 });
-    return Promise.resolve(query);
+    let skip = page * size;
+    console.log(skip);
+    console.log(size);
+    return Promise.resolve(
+        Products
+            .find({})
+            .skip(2)
+            .limit(2)
+            .sort({ 'modified': -1 })
+    );
 };
 
 const getById = async (req, res) => {
