@@ -27,4 +27,4 @@ The core application will expose the RESTful APIs of TODOlist which support for 
 - npm i --save-dev @types/hapi__vision
 - npm i winston
 
-Visit more [todo core](../todos/core/package.json)
+Visit more [todo core](../todos/core/)
