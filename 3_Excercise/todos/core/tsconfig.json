@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        /* Basic Options */
+        "resolveJsonModule": true,
+        "target": "ES2019",
+        "module": "commonjs",
+        "lib": [
+            "es2019"
+        ],
+        "sourceMap": true /* Generates corresponding '.map' file. */,
+        "outDir": "dist" /* Redirect output structure to the directory. */,
+        "rootDir": "./",
+        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": false, // should enabled
+        "noUnusedParameters": false, // should enabled
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "**/*.test.ts"
+    ],
+    "include": [
+        "src/**/*.ts",
+        "migrations/**/*.ts",
+        "src/configs/*.json"
+    ]
+}

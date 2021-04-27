@@ -1,0 +1,37 @@
+{
+  "name": "todos",
+  "version": "1.0.0",
+  "description": "TODOs example with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ./",
+    "start": "npm run build -- -w"
+  },
+  "keywords": [
+    "todos",
+    "example",
+    "with",
+    "node.js"
+  ],
+  "author": "Le Quoc Truong",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/boom": "^9.1.2",
+    "@hapi/hapi": "^20.1.2",
+    "@hapi/inert": "^6.0.3",
+    "@hapi/joi": "^17.1.1",
+    "@hapi/vision": "^6.0.1",
+    "dotenv": "^8.2.0",
+    "typescript": "^4.2.4",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/hapi__boom": "^9.0.1",
+    "@types/hapi__hapi": "^20.0.8",
+    "@types/hapi__inert": "^5.2.2",
+    "@types/hapi__joi": "^17.1.6",
+    "@types/hapi__vision": "^5.5.2"
+  }
+}
