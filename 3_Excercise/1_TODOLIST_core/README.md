@@ -13,7 +13,7 @@ The core application will expose the RESTful APIs of TODOlist which support for 
 | DELETE | `/api/todos/{id}` | Todos.delete | To delete a TODO for current user by id | Yes | 
 
 ## Dependencies
-- npm i @dotenv
+- npm i dotenv
 - npm i --save-dev @types/dotenv
 - npm i @hapi/hapi
 - npm i --save-dev @types/hapi__hapi
@@ -21,10 +21,7 @@ The core application will expose the RESTful APIs of TODOlist which support for 
 - npm i --save-dev @types/hapi__joi
 - npm i @hapi/boom
 - npm i --save-dev @types/hapi__boom
-- npm i @hapi/inert
-- npm i --save-dev @types/hapi__inert
-- npm i @hapi/vision
-- npm i --save-dev @types/hapi__vision
 - npm i winston
+- npm i tsc-watch --save-dev
 
 Visit more [todo core](../todos/core/)
