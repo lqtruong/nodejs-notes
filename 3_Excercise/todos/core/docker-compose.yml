@@ -1,0 +1,16 @@
+version: '3'
+services:
+  todos-core:
+    container_name: todos-core
+    build: .
+    command: npm run start--prod
+    volumes:
+      - .:/usr/app/
+    environment:
+      - PORT=4000
+      - HOST=0.0.0.0
+      - PROJECT_DIR=/usr/app/
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+    ports:
+      - "4000:4000"
