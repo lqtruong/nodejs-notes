@@ -5,6 +5,7 @@ import Router from './router';
 import * as DotEnv from 'dotenv';
 
 export default class Server {
+  
   private static _instance: Hapi.Server;
 
   public static async start(): Promise<Hapi.Server> {

@@ -23,6 +23,12 @@ The core application will expose the RESTful APIs of TODOlist which support for 
 - npm i --save-dev @types/hapi__boom
 - npm i winston
 - npm i tsc-watch --save-dev
+- npm i hapi-swagger 
+- npm i @hapi/vision
+- npm i --save-dev @types/hapi__vision
+- npm i @hapi/inert
+- npm i --save-dev @types/hapi__inert
+
 
 Visit more [todo core](../todos/core/)
 

@@ -20,7 +20,7 @@ export default class TodosRoutes implements IRoute {
                         handler: controller.getAll,
                         description: 'To return TODOs from current user.',
                         tags: ['api', 'todos'],
-                        auth: false,
+                        auth: false
                     },
                 },
                 {
@@ -31,7 +31,7 @@ export default class TodosRoutes implements IRoute {
                         validate: validate.create,
                         description: 'To create a TODO for current user',
                         tags: ['api', 'todos'],
-                        auth: false,
+                        auth: false
                     },
                 },
                 {
