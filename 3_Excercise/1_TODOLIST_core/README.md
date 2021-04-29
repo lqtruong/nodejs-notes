@@ -32,6 +32,9 @@ The core application will expose the RESTful APIs of TODOlist which support for 
 
 Visit more [todo core](../todos/core/)
 
+# Authorization
+These apis except `/api/login` are authorized.
+
 # Start watching for Development
 
 We can use command ```npm run start```. This will enable the watching mechanism when file changes
@@ -47,3 +50,11 @@ The API can be seen under server `localhost:4000/api/todos`
 # Start on Docker container
 We can use command ```npm run docker:start```
 To stop the container, use ```npm run docker:stop```
+
+# Play
+
+GET /api/todos
+
+```
+curl --location --request GET 'localhost:4000/api/todos'
+```
