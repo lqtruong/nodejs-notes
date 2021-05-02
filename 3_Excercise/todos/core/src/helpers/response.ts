@@ -24,7 +24,7 @@ interface IResponseOptions<T> {
     boom?: Boom.Boom<any> | null | undefined;
 }
 
-export default function createResponse<T>(
+export default function reply<T>(
     request: Hapi.Request,
     { value = null, boom = null }: IResponseOptions<T>
 ): IResponse<T> {

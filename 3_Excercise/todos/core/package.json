@@ -28,6 +28,7 @@
     "@hapi/vision": "^6.0.1",
     "dotenv": "^8.2.0",
     "hapi-swagger": "^14.1.2",
+    "hapijs-status-monitor": "^1.0.1",
     "typescript": "^4.2.4",
     "winston": "^3.3.3"
   },

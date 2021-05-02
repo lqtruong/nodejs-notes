@@ -1,8 +1,8 @@
-import Repository from '../../common/base-repository';
-import Resolver from '../../common/base-resolver';
-import Todo from '../../models/todo';
+import Repository from '../../common/repository';
+import Resolver from '../../common/resolver';
+import Task from '../../models/task';
 
-export default class TodoResolver extends Resolver<Todo> {
+export default class TodoResolver extends Resolver<Task> {
     constructor() {
         super(new Repository());
     }

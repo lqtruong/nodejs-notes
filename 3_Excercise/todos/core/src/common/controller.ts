@@ -1,8 +1,8 @@
 import * as Boom from '@hapi/boom';
 import * as Hapi from '@hapi/hapi';
-import CrudResolver from '../common/base-resolver';
+import CrudResolver from '../common/resolver';
 import Logger from '../helpers/logger';
-import newResponse from '../helpers/response';
+import reply from '../helpers/response';
 
 export default class CrudController<T> {
     constructor(
@@ -20,13 +20,13 @@ export default class CrudController<T> {
             const data: any = await this.crudResolver.save(request.payload as any);
 
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     value: { _id: data['_id'] },
                 })
             );
         } catch (error) {
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     boom: Boom.badImplementation(error),
                 })
             );
@@ -49,20 +49,20 @@ export default class CrudController<T> {
 
             if (!updatedEntity) {
                 return toolkit.response(
-                    newResponse(request, {
+                    reply(request, {
                         boom: Boom.notFound(),
                     })
                 );
             }
 
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     value: updatedEntity,
                 })
             );
         } catch (error) {
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     boom: Boom.badImplementation(error),
                 })
             );
@@ -82,20 +82,20 @@ export default class CrudController<T> {
 
             if (!entity) {
                 return toolkit.response(
-                    newResponse(request, {
+                    reply(request, {
                         boom: Boom.notFound(),
                     })
                 );
             }
 
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     value: entity,
                 })
             );
         } catch (error) {
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     boom: Boom.badImplementation(error),
                 })
             );
@@ -112,13 +112,13 @@ export default class CrudController<T> {
             const entities: T[] = await this.crudResolver.getAll();
 
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     value: entities,
                 })
             );
         } catch (error) {
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     boom: Boom.badImplementation(error),
                 })
             );
@@ -137,13 +137,13 @@ export default class CrudController<T> {
             await this.crudResolver.deleteOneById(id);
 
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     value: { _id: id },
                 })
             );
         } catch (error) {
             return toolkit.response(
-                newResponse(request, {
+                reply(request, {
                     boom: Boom.badImplementation(error),
                 })
             );

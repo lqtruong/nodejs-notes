@@ -1,4 +1,4 @@
-import Repository from '../common/base-repository';
+import Repository from '../common/repository';
 
 export default class CrudResolver<T> {
     constructor(protected repository: Repository<T>) { }

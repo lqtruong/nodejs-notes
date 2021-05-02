@@ -1,6 +1,6 @@
 import * as Hapi from '@hapi/hapi';
 import TodoController from '../../api/todos/controller';
-import validate from '../../api/todos/validation';
+import Validator from '../../api/todos/validator';
 import Logger from '../../helpers/logger';
 import IRoute from '../../helpers/route';
 
@@ -28,7 +28,7 @@ export default class TodosRoutes implements IRoute {
                     path: '/api/todos',
                     options: {
                         handler: controller.create,
-                        validate: validate.create,
+                        validate: Validator.create,
                         description: 'To create a TODO for current user',
                         tags: ['api', 'todos'],
                         auth: false
@@ -39,7 +39,7 @@ export default class TodosRoutes implements IRoute {
                     path: `/api/todos/{${controller.id}}`,
                     options: {
                         handler: controller.updateById,
-                        validate: validate.updateById,
+                        validate: Validator.updateById,
                         description: 'To update a TODO for current user',
                         tags: ['api', 'todos'],
                         auth: false,
@@ -50,7 +50,7 @@ export default class TodosRoutes implements IRoute {
                     path: `/api/todos/{${controller.id}}`,
                     options: {
                         handler: controller.deleteById,
-                        validate: validate.deleteById,
+                        validate: Validator.deleteById,
                         description: 'To delete a TODO for current user by id',
                         tags: ['api', 'todos'],
                         auth: false,
