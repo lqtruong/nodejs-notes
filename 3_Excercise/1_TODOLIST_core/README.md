@@ -28,6 +28,7 @@ The core application will expose the RESTful APIs of TODOlist which support for 
 - npm i --save-dev @types/hapi__vision
 - npm i @hapi/inert
 - npm i --save-dev @types/hapi__inert
+- npm i hapijs-status-monitor
 
 
 Visit more [todo core](../todos/core/)
