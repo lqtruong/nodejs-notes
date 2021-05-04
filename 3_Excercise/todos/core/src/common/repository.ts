@@ -1,4 +1,4 @@
-import Task from "../models/task";
+import { ITask } from "../models/task";
 
 export default class Repository<T> {
 
@@ -14,10 +14,19 @@ export default class Repository<T> {
 
   public getAll(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      resolve([new Task('solve problem 1', {
-        _id: 'person-id',
-        name: 'truong'
-      })]);
+      resolve([
+        {
+          name: 'solve problem 1',
+          desc: 'math problem',
+          tags: [],
+          person: {
+            _id: 'person-id',
+            name: 'truong'
+          },
+          created: new Date(),
+          modified: new Date()
+        }
+      ]);
     });
   }
 
