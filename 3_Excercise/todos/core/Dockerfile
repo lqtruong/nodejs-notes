@@ -5,7 +5,7 @@ MAINTAINER Le Quoc Truong
 # do not know why the environment variables has not been taken from docker-compose.yml file
 ARG HOST=localhost
 ARG PORT=4000
-ARG NODE_ENV=development
+ARG NODE_ENV=dev
 ARG LOG_LEVEL=info
 ARG PROJECT_DIR=/usr/app
 

@@ -17,18 +17,22 @@ The core application will expose the RESTful APIs of TODOlist which support for 
 - npm i --save-dev @types/dotenv
 - npm i @hapi/hapi
 - npm i --save-dev @types/hapi__hapi
-- npm i @hapi/joi
+- `npm i @hapi/joi` for hapi request validation
 - npm i --save-dev @types/hapi__joi
-- npm i @hapi/boom
+- `npm i @hapi/boom` for concise error handling
 - npm i --save-dev @types/hapi__boom
 - npm i winston
-- npm i tsc-watch --save-dev
-- npm i hapi-swagger 
+- `npm i tsc-watch --save-dev` for node.js building as watch mode
+- `npm i hapi-swagger` for hapi API documentation
 - npm i @hapi/vision
 - npm i --save-dev @types/hapi__vision
 - npm i @hapi/inert
 - npm i --save-dev @types/hapi__inert
-- npm i hapijs-status-monitor
+- `npm i hapijs-status-monitor` for application status heath check
+- `npm i mongoose` for MongoDB connnection
+- `npm i nconf` for configuration file loading
+- `npm i --save-dev @types/nconf` for `nconf` types
+- `npm i path` for file system path manipulation
 
 
 Visit more [todo core](../todos/core/)

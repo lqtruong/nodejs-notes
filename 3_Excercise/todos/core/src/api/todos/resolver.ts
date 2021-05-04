@@ -1,9 +1,10 @@
 import Repository from '../../common/repository';
 import Resolver from '../../common/resolver';
-import Task from '../../models/task';
+import { IDatabase } from '../../db';
+import { ITask } from '../../models/task';
 
-export default class TodoResolver extends Resolver<Task> {
-    constructor() {
-        super(new Repository());
+export default class TodoResolver extends Resolver<ITask> {
+    constructor(private database: IDatabase) {
+        super(new Repository(database));
     }
 }

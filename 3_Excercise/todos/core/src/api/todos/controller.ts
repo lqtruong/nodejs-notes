@@ -1,10 +1,11 @@
 import TodoResolver from '../../api/todos/resolver';
 import CrudController from '../../common/controller';
-import Task from '../../models/task';
+import { IDatabase } from '../../db';
+import { ITask } from '../../models/task';
 
-export default class TodoController extends CrudController<Task> {
+export default class TodoController extends CrudController<ITask> {
 
-    constructor(id?: string) {
-        super(id, new TodoResolver());
+    constructor(database: IDatabase, id?: string) {
+        super(id, new TodoResolver(database));
     }
 }
