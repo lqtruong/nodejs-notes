@@ -22,9 +22,7 @@ export const TaskSchema = new Mongoose.Schema(
                 _id: { type: Mongoose.Schema.Types.ObjectId, required: true },
                 name: { type: String, required: true }
             }), required: true
-        },
-        created: { type: Date, default: new Date() },
-        modified: { type: Date, default: new Date() }
+        }
     },
     {
         timestamps: true

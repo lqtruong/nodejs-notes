@@ -1,0 +1,42 @@
+{
+  "database": {
+    "connectionString": "mongodb://localhost:27017/todos-test"
+  },
+  "server": {
+    "port": 4000,
+    "host": "localhost",
+    "jwt": {
+      "secret": "$2y$12$QkiPP1GwHAstb7rePmsPj.ceZO/.8UCRLNPn2SSoHSvn/0JmaB15G",
+      "expired": "1h"
+    },
+    "route": {
+      "prefix": ""
+    },
+    "plugins": [
+      "hapi-auth-jwt2"
+    ],
+    "swagger": {
+      "options": {
+        "info": {
+          "title": "API Documentation",
+          "version": "v1.0.0",
+          "contact": {
+            "name": "Truong Le",
+            "email": "lqtruong@gmail.com"
+          }
+        },
+        "grouping": "tags",
+        "sortEndpoints": "ordered"
+      }
+    },
+    "status": {
+      "options": {
+        "path": "/status",
+        "title": "API Monitor",
+        "routeConfig": {
+          "auth": false
+        }
+      }
+    }
+  }
+}

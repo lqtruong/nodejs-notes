@@ -1,42 +1,13 @@
-import { ITask } from "../models/task";
+export default interface Repository<T> {
 
-export default class Repository<T> {
+  save(data: T): Promise<T>;
 
-  public save(data: T): Promise<T> {
-    return new Promise((resolve, reject) => {
-    });
-  }
+  getById(_id: string): Promise<T | null>;
 
-  public getById(_id: string): Promise<any> {
-    return new Promise((resolve, reject) => {
-    });
-  }
+  getAll(): Promise<T[]>;
 
-  public getAll(): Promise<any[]> {
-    return new Promise((resolve, reject) => {
-      resolve([
-        {
-          name: 'solve problem 1',
-          desc: 'math problem',
-          tags: [],
-          person: {
-            _id: 'person-id',
-            name: 'truong'
-          },
-          created: new Date(),
-          modified: new Date()
-        }
-      ]);
-    });
-  }
+  updateById(_id: string, data: T): Promise<T | null>;
 
-  public updateById(_id: string, data: T): Promise<T> {
-    return new Promise((resolve, reject) => {
-    });
-  }
+  deleteById(_id: string): Promise<T | null>;
 
-  public deleteById(_id: string): Promise<string> {
-    return new Promise((resolve, reject) => {
-    });
-  }
 }

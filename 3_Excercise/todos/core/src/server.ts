@@ -3,12 +3,17 @@ import Logger from './helpers/logger';
 import Plugin from './plugins';
 import Router from './router';
 import * as DotEnv from 'dotenv';
+import { IDatabase } from './db';
+import { IServerConfig } from './configs';
 
 export default class Server {
-  
+
   private static _instance: Hapi.Server;
 
-  public static async start(): Promise<Hapi.Server> {
+  public static async start(
+    serverConfig: IServerConfig,
+    database: IDatabase
+  ): Promise<Hapi.Server> {
     try {
       DotEnv.config({
         path: `${process.cwd()}/.env`,
@@ -17,11 +22,11 @@ export default class Server {
       Server._instance = new Hapi.Server({
         port: process.env.PORT,
       });
-      
+
       Server._instance.validator(require('@hapi/joi'));
 
       await Plugin.registerAll(Server._instance);
-      await Router.loadRoutes(Server._instance);
+      await Router.loadRoutes(Server._instance, serverConfig, database);
 
       await Server._instance.start();
 
@@ -49,12 +54,15 @@ export default class Server {
     return Server._instance.stop();
   }
 
-  public static async recycle(): Promise<Hapi.Server> {
+  public static async recycle(
+    serverConfig: IServerConfig,
+    database: IDatabase
+  ): Promise<Hapi.Server> {
     Logger.info(`Server - Recycling instance`);
 
     await Server.stop();
 
-    return await Server.start();
+    return await Server.start(serverConfig, database);
   }
 
   public static instance(): Hapi.Server {

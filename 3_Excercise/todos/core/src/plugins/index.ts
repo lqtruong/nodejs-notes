@@ -38,7 +38,7 @@ export default class Plugins {
     }
 
     public static async registerAll(server: Hapi.Server): Promise<Error | any> {
-        if (process.env.NODE_ENV === 'development') {
+        if (process.env.NODE_ENV === 'dev') {
             await Plugins.status(server);
             await Plugins.swagger(server);
         }

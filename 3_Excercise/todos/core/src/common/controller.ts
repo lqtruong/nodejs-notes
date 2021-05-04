@@ -18,10 +18,9 @@ export default class CrudController<T> {
             Logger.info(`POST - ${request.url.href}`);
 
             const data: any = await this.crudResolver.save(request.payload as any);
-
             return toolkit.response(
                 reply(request, {
-                    value: { _id: data['_id'] },
+                    value: data,
                 })
             );
         } catch (error) {
@@ -75,9 +74,8 @@ export default class CrudController<T> {
     ): Promise<any> => {
         try {
             Logger.info(`GET - ${request.url.href}`);
-
             const id = encodeURIComponent(request.params[this.id]);
-
+            
             const entity: T = await this.crudResolver.getOneById(id);
 
             if (!entity) {
@@ -134,11 +132,11 @@ export default class CrudController<T> {
 
             const id = encodeURIComponent(request.params[this.id]);
 
-            await this.crudResolver.deleteOneById(id);
+            const deleted: T = await this.crudResolver.deleteOneById(id);
 
             return toolkit.response(
                 reply(request, {
-                    value: { _id: id },
+                    value: deleted,
                 })
             );
         } catch (error) {

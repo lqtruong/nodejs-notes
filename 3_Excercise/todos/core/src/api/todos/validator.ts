@@ -3,33 +3,33 @@ import * as Joi from '@hapi/joi';
 export default {
     create: {
         payload: {
-            age: Joi.number()
-                .integer()
-                .required(),
             name: Joi.string().required(),
-            lastName: Joi.string().required(),
-        },
+            person: Joi.object().keys({
+                _id: Joi.string().required(),
+                name: Joi.string().required()
+            })
+        }
     },
     updateById: {
         params: {
-            TODO_ID: Joi.string().required(),
+            id: Joi.string().required(),
         },
         payload: {
-            age: Joi.number()
-                .integer()
-                .optional(),
-            name: Joi.string().optional(),
-            lastName: Joi.string().optional(),
+            name: Joi.string().required(),
+            person: Joi.object().keys({
+                _id: Joi.string().required(),
+                name: Joi.string().required()
+            })
         },
     },
     getById: {
         params: {
-            TODO_ID: Joi.string().required(),
+            id: Joi.string().required(),
         },
     },
     deleteById: {
         params: {
-            TODO_ID: Joi.string().required(),
+            id: Joi.string().required(),
         },
     },
 };

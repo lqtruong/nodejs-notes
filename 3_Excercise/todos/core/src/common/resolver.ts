@@ -7,11 +7,11 @@ export default class CrudResolver<T> {
         return await this.repository.save(data);
     }
 
-    public async getOneById(id: string): Promise<T> {
+    public async getOneById(id: string): Promise<T | null> {
         return await this.repository.getById(id);
     }
 
-    public async updateOneById(id: string, update: any): Promise<T> {
+    public async updateOneById(id: string, update: any): Promise<T | null> {
         return await this.repository.updateById(id, update);
     }
 
