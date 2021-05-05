@@ -1,12 +1,12 @@
 import * as Hapi from '@hapi/hapi';
-import TodoController from '../../api/todos/controller';
-import Validator from '../../api/todos/validator';
+import TodoController from '../../api/todos/todo-controller';
+import TodoValidator from '../../api/todos/todo-validator';
 import { IServerConfig } from '../../configs';
 import { IDatabase } from '../../db';
 import Logger from '../../helpers/logger';
 import IRoute from '../../helpers/route';
 
-export default class TodosRoutes implements IRoute {
+export default class TodoRoutes implements IRoute {
 
     constructor(
         private serverConfig: IServerConfig,
@@ -16,12 +16,12 @@ export default class TodosRoutes implements IRoute {
         return new Promise(resolve => {
             Logger.info('TodosRoutes - Start adding todos routes');
 
-            const controller = new TodoController(this.database, 'id');
+            const controller = new TodoController(this.database);
 
             server.route([
                 {
                     method: 'GET',
-                    path: `/api/todos/{${controller.id}}`,
+                    path: `/api/todos/{id}`,
                     options: {
                         handler: controller.getById,
                         description: 'To return a TODO from id.',
@@ -52,7 +52,7 @@ export default class TodosRoutes implements IRoute {
                 },
                 {
                     method: 'PUT',
-                    path: `/api/todos/{${controller.id}}`,
+                    path: '/api/todos/{id}',
                     options: {
                         handler: controller.updateById,
                         // validate: Validator.updateById,
@@ -63,10 +63,10 @@ export default class TodosRoutes implements IRoute {
                 },
                 {
                     method: 'DELETE',
-                    path: `/api/todos/{${controller.id}}`,
+                    path: '/api/todos/{id}',
                     options: {
                         handler: controller.deleteById,
-                        validate: Validator.deleteById,
+                        validate: TodoValidator.deleteById,
                         description: 'To delete a TODO for current user by id',
                         tags: ['api', 'todos'],
                         auth: false,

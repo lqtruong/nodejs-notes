@@ -1,4 +1,4 @@
-import Config from '../config';
+import * as Configs from '../configs';
 import * as Hapi from '@hapi/hapi';
 import Logger from '../helpers/logger';
 
@@ -8,7 +8,7 @@ export default class Plugins {
             Logger.info('Plugins - Registering status-monitor');
 
             await Plugins.register(server, {
-                options: Config.status.options,
+                options: Configs.getServerConfig().status.options,
                 plugin: require('hapijs-status-monitor'),
             });
         } catch (error) {
@@ -26,7 +26,7 @@ export default class Plugins {
                 require('@hapi/vision'),
                 require('@hapi/inert'),
                 {
-                    options: Config.swagger.options,
+                    options: Configs.getServerConfig().swagger.options,
                     plugin: require('hapi-swagger'),
                 },
             ]);

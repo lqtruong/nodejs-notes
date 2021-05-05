@@ -1,4 +1,4 @@
-export default interface Repository<T> {
+export default interface CrudRepository<T> {
 
   save(data: T): Promise<T>;
 

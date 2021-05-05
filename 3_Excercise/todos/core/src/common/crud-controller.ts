@@ -1,13 +1,13 @@
 import * as Boom from '@hapi/boom';
 import * as Hapi from '@hapi/hapi';
-import CrudResolver from '../common/resolver';
+import CrudService from '../common/crud-service';
 import Logger from '../helpers/logger';
 import reply from '../helpers/response';
 
 export default class CrudController<T> {
+
     constructor(
-        public id: string = 'id',
-        private crudResolver: CrudResolver<T>
+        private crudService: CrudService<T>
     ) { }
 
     public create = async (
@@ -17,7 +17,7 @@ export default class CrudController<T> {
         try {
             Logger.info(`POST - ${request.url.href}`);
 
-            const data: any = await this.crudResolver.save(request.payload as any);
+            const data: any = await this.crudService.save(request.payload as any);
             return toolkit.response(
                 reply(request, {
                     value: data,
@@ -39,9 +39,9 @@ export default class CrudController<T> {
         try {
             Logger.info(`PUT - ${request.url.href}`);
 
-            const id = encodeURIComponent(request.params[this.id]);
+            const id = encodeURIComponent(request.params.id);
 
-            const updatedEntity: T = await this.crudResolver.updateOneById(
+            const updatedEntity: T = await this.crudService.updateOneById(
                 id,
                 request.payload
             );
@@ -74,9 +74,9 @@ export default class CrudController<T> {
     ): Promise<any> => {
         try {
             Logger.info(`GET - ${request.url.href}`);
-            const id = encodeURIComponent(request.params[this.id]);
-            
-            const entity: T = await this.crudResolver.getOneById(id);
+            const id = encodeURIComponent(request.params.id);
+
+            const entity: T = await this.crudService.getOneById(id);
 
             if (!entity) {
                 return toolkit.response(
@@ -107,7 +107,7 @@ export default class CrudController<T> {
         try {
             Logger.info(`GET - ${request.url.href}`);
 
-            const entities: T[] = await this.crudResolver.getAll();
+            const entities: T[] = await this.crudService.getAll();
 
             return toolkit.response(
                 reply(request, {
@@ -130,13 +130,13 @@ export default class CrudController<T> {
         try {
             Logger.info(`DELETE - ${request.url.href}`);
 
-            const id = encodeURIComponent(request.params[this.id]);
+            const id = encodeURIComponent(request.params.id);
 
-            const deleted: T = await this.crudResolver.deleteOneById(id);
+            await this.crudService.deleteOneById(id);
 
             return toolkit.response(
                 reply(request, {
-                    value: deleted,
+                    value: {},
                 })
             );
         } catch (error) {

@@ -1,7 +1,8 @@
-import Repository from '../common/repository';
+import CrudRepository from '../common/crud-repository';
 
-export default class CrudResolver<T> {
-    constructor(protected repository: Repository<T>) { }
+export default class CrudService<T> {
+    
+    constructor(protected repository: CrudRepository<T>) { }
 
     public async save(data: T): Promise<T> {
         return await this.repository.save(data);

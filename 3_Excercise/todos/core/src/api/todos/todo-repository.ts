@@ -1,8 +1,8 @@
-import Repository from "../../common/repository";
+import CrudRepository from "../../common/crud-repository";
 import { IDatabase } from "../../db";
 import { ITask } from "../../models/task";
 
-export class TaskRepository implements Repository<ITask> {
+export class TaskRepository implements CrudRepository<ITask> {
 
     constructor(private database: IDatabase) { }
 
