@@ -39,6 +39,9 @@ export default class Server {
       Logger.info(
         `Server - Visit http://${process.env.HOST}:${process.env.PORT}/documentation for Swagger docs`
       );
+      Logger.info(
+        `Server - Visit http://${process.env.HOST}:${process.env.PORT}/status for Node.js health status`
+      );
 
       return Server._instance;
     } catch (error) {

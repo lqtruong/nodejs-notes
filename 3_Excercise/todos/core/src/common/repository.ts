@@ -2,12 +2,12 @@ export default interface Repository<T> {
 
   save(data: T): Promise<T>;
 
-  getById(_id: string): Promise<T | null>;
+  getById(_id: string): Promise<T>;
 
   getAll(): Promise<T[]>;
 
-  updateById(_id: string, data: T): Promise<T | null>;
+  updateById(_id: string, data: T): Promise<T>;
 
-  deleteById(_id: string): Promise<T | null>;
+  deleteById(_id: string): Promise<T>;
 
 }

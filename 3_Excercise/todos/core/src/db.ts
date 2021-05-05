@@ -11,7 +11,7 @@ export interface IDatabase {
 export function init(config: IDatabaseConfig): IDatabase {
     (<any>Mongoose).Promise = Promise;
     console.log(process.env.MONGO_URI || config.connectionString);
-    Mongoose.connect(process.env.MONGO_URI || config.connectionString, { useNewUrlParser: true });
+    Mongoose.connect(process.env.MONGO_URI || config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 
     let mongoDb = Mongoose.connection;
 
