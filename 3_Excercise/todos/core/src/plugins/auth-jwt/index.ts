@@ -1,8 +1,6 @@
-import { IPlugin, IPluginOptions } from '../plugins';
+import { IPlugin, IPluginOptions } from '../../plugins';
 import * as Hapi from '@hapi/hapi';
-import { IPerson, PersonModel } from '../../models/person';
-import { IRequest } from '../../interfaces/request';
-import { IServerConfig } from '../../configs';
+import Logger from '../../helpers/logger';
 
 const register = async (
     server: Hapi.Server,
@@ -14,15 +12,15 @@ const register = async (
 
         const validatePerson = async (
             decoded: any,
-            request: IRequest,
-            h: Hapi.ResponseToolkit
+            request: Hapi.Request,
+            response: Hapi.ResponseToolkit
         ) => {
             const person = await database.personModel.findById(decoded.id).lean(true);
             if (!person) {
                 return { isValid: false };
             }
 
-            return { isValid: true };
+            return { isValid: true, credentials: { id: decoded.id, user: person.name } };
         };
 
         await server.register(require('hapi-auth-jwt2'));
@@ -32,7 +30,7 @@ const register = async (
             validate: validatePerson
         });
     } catch (err) {
-        console.log(`Error registering jwt plugin: ${err}`);
+        Logger.error(`Error registering jwt plugin: ${err}`);
         throw err;
     }
 };

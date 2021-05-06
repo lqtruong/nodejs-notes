@@ -5,12 +5,18 @@ The core application will expose the RESTful APIs of TODOlist which support for 
 
 | Method | Path | Handlers | Purpose | Authorized |
 | --- | --- | --- | --- | --- |
-| GET | `/api/user` | Users.current | to return current user info | Yes | 
-| GET | `/api/login` | Auths.login | To login user with basic authentication | No | 
-| GET | `/api/todos` | Todos.all | To return a TODOs from current user | Yes | 
-| POST | `/api/todos` | Todos.create | To create a TODO for current user | Yes | 
-| PUT | `/api/todos/{id}` | Todos.update | To update a TODO for current user | Yes | 
-| DELETE | `/api/todos/{id}` | Todos.delete | To delete a TODO for current user by id | Yes | 
+| GET | `/api/user` | AuthController.current | To return current user info | Yes | 
+| POST | `/api/login` | AuthController.login | To login user with basic authentication | No | 
+| GET | `/api/users` | PersonController.getAll | To return all users | Yes | 
+| GET | `/api/users/{id}` | PersonController.getById | To return a user by id | Yes | 
+| POST | `/api/users` | PersonController.create | To create a user| Yes | 
+| PUT | `/api/users/{id}` | PersonController.updateById | To update a user | Yes | 
+| DELETE | `/api/users/{id}` | PersonController.deleteById | To delete a user by id | Yes | 
+| GET | `/api/todos` | TodoController.getAll | To return a TODOs from current user | Yes | 
+| GET | `/api/todos/{id}` | TodoController.getById | To return a TODO by id from current user | Yes | 
+| POST | `/api/todos` | TodoController.create | To create a TODO for current user | Yes | 
+| PUT | `/api/todos/{id}` | TodoController.updateById | To update a TODO for current user | Yes | 
+| DELETE | `/api/todos/{id}` | TodoController.deleteById | To delete a TODO for current user by id | Yes | 
 
 ## Dependencies
 - npm i dotenv
@@ -28,11 +34,15 @@ The core application will expose the RESTful APIs of TODOlist which support for 
 - npm i --save-dev @types/hapi__vision
 - npm i @hapi/inert
 - npm i --save-dev @types/hapi__inert
-- npm i hapijs-status-monitor
 - `npm i mongoose` for MongoDB connnection
 - `npm i nconf` for configuration file loading
 - `npm i --save-dev @types/nconf` for nconf types
-
+- `npm i hapi-auth-jwt2` for jwt authentication & authorization
+- `npm i hapijs-status-monitor` for hapijs status monitoring
+- `npm i bcrypt` for password hashing
+- `npm i --save-dev @types/bcrypt`
+- `nom i jsonwebtoken` for jwt generator
+- `npm i --save-dev @types/jsonwebtoken`
 
 Visit more [todo core](../todos/core/)
 
@@ -61,4 +71,9 @@ GET /api/todos
 
 ```
 curl --location --request GET 'localhost:4000/api/todos'
+```
+
+Results 
+
+```
 ```

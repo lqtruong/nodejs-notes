@@ -7,7 +7,7 @@ import reply from '../helpers/response';
 export default class CrudController<T> {
 
     constructor(
-        private crudService: CrudService<T>
+        public crudService: CrudService<T>
     ) { }
 
     public create = async (

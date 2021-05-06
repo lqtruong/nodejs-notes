@@ -1,6 +1,6 @@
-import CrudRepository from "../../common/crud-repository";
-import { IDatabase } from "../../db";
-import { ITask } from "../../models/task";
+import CrudRepository from '../../common/crud-repository';
+import { IDatabase } from '../../db';
+import { ITask } from '../../models/task';
 
 export class TaskRepository implements CrudRepository<ITask> {
 
