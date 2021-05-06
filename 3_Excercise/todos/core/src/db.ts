@@ -1,7 +1,8 @@
 import Mongoose from 'mongoose';
 import { IDatabaseConfig } from './configs';
-import { IPerson, PersonModel } from "./models/person";
-import { ITask, TaskModel } from "./models/task";
+import { IPerson, PersonModel } from './models/person';
+import { ITask, TaskModel } from './models/task';
+import Logger from './helpers/logger';
 
 export interface IDatabase {
     personModel: Mongoose.Model<IPerson>;
@@ -10,17 +11,17 @@ export interface IDatabase {
 
 export function init(config: IDatabaseConfig): IDatabase {
     (<any>Mongoose).Promise = Promise;
-    console.log(process.env.MONGO_URI || config.connectionString);
+    Logger.info(process.env.MONGO_URI || config.connectionString);
     Mongoose.connect(process.env.MONGO_URI || config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 
     let mongoDb = Mongoose.connection;
 
-    mongoDb.on("error", () => {
-        console.log(`Unable to connect to database: ${config.connectionString}`);
+    mongoDb.on('error', () => {
+        Logger.info(`Unable to connect to database: ${config.connectionString}`);
     });
 
-    mongoDb.once("open", () => {
-        console.log(`Connected to database: ${config.connectionString}`);
+    mongoDb.once('open', () => {
+        Logger.info(`Connected to database: ${config.connectionString}`);
     });
 
     return {

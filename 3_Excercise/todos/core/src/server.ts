@@ -1,10 +1,10 @@
 import * as Hapi from '@hapi/hapi';
 import Logger from './helpers/logger';
-import Plugin from './plugins';
 import Router from './router';
 import * as DotEnv from 'dotenv';
 import { IDatabase } from './db';
 import { IServerConfig } from './configs';
+import { Plugins } from './plugins/plugins';
 
 export default class Server {
 
@@ -25,7 +25,7 @@ export default class Server {
 
       Server._instance.validator(require('@hapi/joi'));
 
-      await Plugin.registerAll(Server._instance);
+      await Plugins.registerAll(Server._instance, serverConfig, database);
       await Router.loadRoutes(Server._instance, serverConfig, database);
 
       await Server._instance.start();
@@ -34,7 +34,7 @@ export default class Server {
         `Server - Up and running at http://${process.env.HOST}:${process.env.PORT}`
       );
       Logger.info(
-        `Server - Visit http://${process.env.HOST}:${process.env.PORT}/api/todos for REST API`
+        `Server - Visit http://${process.env.HOST}:${process.env.PORT}/api/* for REST API`
       );
       Logger.info(
         `Server - Visit http://${process.env.HOST}:${process.env.PORT}/documentation for Swagger docs`

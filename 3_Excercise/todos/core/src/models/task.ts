@@ -1,4 +1,4 @@
-import * as Mongoose from "mongoose";
+import * as Mongoose from 'mongoose';
 
 export interface ITask extends Mongoose.Document {
     name: string;
@@ -8,8 +8,6 @@ export interface ITask extends Mongoose.Document {
         _id: string;
         name: string;
     };
-    created: Date;
-    modified: Date;
 }
 
 export const TaskSchema = new Mongoose.Schema(
@@ -29,4 +27,4 @@ export const TaskSchema = new Mongoose.Schema(
     }
 );
 
-export const TaskModel = Mongoose.model<ITask>("Task", TaskSchema);
+export const TaskModel = Mongoose.model<ITask>('Task', TaskSchema);

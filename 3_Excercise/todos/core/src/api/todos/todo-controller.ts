@@ -5,7 +5,7 @@ import { ITask } from '../../models/task';
 
 export default class TodoController extends CrudController<ITask> {
 
-    constructor(private database: IDatabase, id?: string) {
+    constructor(private database: IDatabase) {
         super(new TodoService(database));
     }
 }

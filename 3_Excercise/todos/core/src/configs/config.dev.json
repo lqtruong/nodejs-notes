@@ -9,11 +9,21 @@
       "secret": "$2y$12$QkiPP1GwHAstb7rePmsPj.ceZO/.8UCRLNPn2SSoHSvn/0JmaB15G",
       "expired": "1h"
     },
+    "api": {
+      "cors": [
+        "*"
+      ]
+    },
+    "auth": {
+      "pwSaltRounds": 12
+    },
     "route": {
       "prefix": ""
     },
     "plugins": [
-      "hapi-auth-jwt2"
+      "auth-jwt",
+      "status-monitor",
+      "swagger"
     ],
     "swagger": {
       "options": {

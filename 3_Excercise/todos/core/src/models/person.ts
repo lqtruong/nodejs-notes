@@ -1,4 +1,4 @@
-import * as Mongoose from "mongoose";
+import * as Mongoose from 'mongoose';
 
 export interface IPerson extends Mongoose.Document {
     name: string;
@@ -6,8 +6,6 @@ export interface IPerson extends Mongoose.Document {
     username: string;
     password: string;
     tasks?: Array<string>;
-    created: Date;
-    modified: Date;
 }
 
 export const PersonSchema = new Mongoose.Schema(
@@ -23,4 +21,4 @@ export const PersonSchema = new Mongoose.Schema(
     }
 );
 
-export const PersonModel = Mongoose.model<IPerson>("Person", PersonSchema);
+export const PersonModel = Mongoose.model<IPerson>('Person', PersonSchema);
